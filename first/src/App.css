@@ -7,6 +7,41 @@
   pointer-events: none;
 }
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.add-button {
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  right: 40px;
+  bottom: 40px;
+  border-radius: 35px;
+  background-color: #61dafb;
+}
+.add-button:hover {
+  cursor: pointer;
+  color: black;
+  background-color: deepskyblue;
+}
+.add-button:active {
+  opacity: 0.6;
+}
+.add-button h2 {
+  font-size: 60px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
