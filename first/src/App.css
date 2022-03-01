@@ -15,6 +15,9 @@
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
+.clear-float {
+  clear: both;
+}
 
 .add-button {
   position: fixed;
@@ -23,15 +26,16 @@
   right: 40px;
   bottom: 40px;
   border-radius: 35px;
+  color: aliceblue;
   background-color: #61dafb;
 }
 .add-button:hover {
   cursor: pointer;
-  color: black;
   background-color: deepskyblue;
 }
 .add-button:active {
   opacity: 0.6;
+  box-shadow: 0 0 10px deepskyblue;
 }
 .add-button h2 {
   font-size: 60px;
@@ -40,6 +44,37 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -55%);
+}
+
+.new-todo-background {
+  background-color: rgba(128, 128, 128, 0.5);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  position: fixed;
+}
+
+.new-todo {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  height: 50vh;
+  margin: 20vh auto;
+  background-color: white;
+  border: 3px solid #eee;
+  border-radius: 7px;
+  box-shadow: 0 0 10px gray;
+}
+.new-todo:focus-within {
+  border: 3px solid #61dafb;
+}
+
+.close-button {
+  float: right;
+  margin: 10px 10px;
+  display: block;
 }
 
 @media (prefers-reduced-motion: no-preference) {
