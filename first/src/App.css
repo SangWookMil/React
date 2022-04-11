@@ -66,6 +66,7 @@
   border: 3px solid #eee;
   border-radius: 7px;
   box-shadow: 0 0 10px gray;
+  z-index: 101;
 }
 .new-todo:focus-within {
   border: 3px solid #61dafb;
@@ -75,6 +76,14 @@
   float: right;
   margin: 10px 10px;
   display: block;
+  z-index: 120;
+}
+
+.add-confirm {
+  color: #eee;
+  position: absolute;
+  bottom: 5px;
+  transform: translate(-50%,0);
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -10,6 +10,7 @@ import {
   Tooltip,
   FloatingLabel,
   Form,
+  Button
 } from "react-bootstrap";
 
 function App() {
@@ -53,24 +54,37 @@ function AddModal(props) {
   }
 
   return (
-    <div className="new-todo-background">
+    <div
+      className="new-todo-background"
+      onClick={(event) => {
+        if (event.target === event.currentTarget) {
+          closeModal();
+        }
+      }}
+    >
       <div className="new-todo" tabIndex={"0"}>
         <OverlayTrigger
           overlay={<Tooltip id={`tooltip-top`}>Click to Cose.</Tooltip>}
         >
-          <CloseButton className="close-button" onClick={closeModal} />
+          <CloseButton onClick={closeModal} className="close-button"/>
         </OverlayTrigger>
 
         <FloatingLabel
           controlId="floatingInput"
-          label="Email address"
-          className="mb-3"
+          label="What do I have to do?"
+          className="mb-3 mt-5"
         >
           <Form.Control type="email" placeholder="name@example.com" />
         </FloatingLabel>
         <FloatingLabel controlId="floatingPassword" label="Password">
           <Form.Control type="password" placeholder="Password" />
         </FloatingLabel>
+        <OverlayTrigger
+          overlay={<Tooltip id={`tooltip-bottom`}>Click to add this schedule.</Tooltip>}
+        >
+          <Button variant="info" className="add-confirm">Done!</Button>
+        </OverlayTrigger>
+        
       </div>
     </div>
   );
