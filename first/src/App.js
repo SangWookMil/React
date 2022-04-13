@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Navbar,
   Container,
@@ -10,12 +10,21 @@ import {
   Tooltip,
   FloatingLabel,
   Form,
-  Button
+  Button,
 } from "react-bootstrap";
 
 function App() {
   const [hello, sethello] = useState("hi");
   var [addModal, setAddModal] = useState(false);
+  var [schedules, setSchedules] = useState([
+    { scheduleName: "meet friends", dueDate: 220505 },
+  ]);
+  var parsedSchedules;
+
+  useEffect(() => {
+    // localStorage.getItem("schedules");
+    localStorage.setItem("schedules", JSON.stringify(schedules));
+  });
 
   return (
     <div className="App">
@@ -29,10 +38,17 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
+      {(parsedSchedules = JSON.parse(localStorage.getItem("schedules")))}
+      <Bulletin>{1}</Bulletin>
+
       {addModal ? <AddModal setAddModal={setAddModal} /> : undefined}
       <AddButton addModal={addModal} setAddModal={setAddModal} />
     </div>
   );
+}
+
+function Bulletin(props) {
+  return <div className="bulletin">hihi</div>;
 }
 
 function AddButton(props) {
@@ -66,7 +82,7 @@ function AddModal(props) {
         <OverlayTrigger
           overlay={<Tooltip id={`tooltip-top`}>Click to Cose.</Tooltip>}
         >
-          <CloseButton onClick={closeModal} className="close-button"/>
+          <CloseButton onClick={closeModal} className="close-button" />
         </OverlayTrigger>
 
         <FloatingLabel
@@ -80,11 +96,14 @@ function AddModal(props) {
           <Form.Control type="password" placeholder="Password" />
         </FloatingLabel>
         <OverlayTrigger
-          overlay={<Tooltip id={`tooltip-bottom`}>Click to add this schedule.</Tooltip>}
+          overlay={
+            <Tooltip id={`tooltip-bottom`}>Click to add this schedule.</Tooltip>
+          }
         >
-          <Button variant="info" className="add-confirm">Done!</Button>
+          <Button variant="info" className="add-confirm">
+            Done!
+          </Button>
         </OverlayTrigger>
-        
       </div>
     </div>
   );

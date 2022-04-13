@@ -19,6 +19,18 @@
   clear: both;
 }
 
+.bulletin {
+  position: relative;
+  margin: 30px auto;
+  width: 60vw;
+  height: 80vh;
+  max-width: 900px;
+  min-width: 350px;
+  background-color: #789395;
+  color: #eee;
+  border-radius: 20px;
+}
+
 .add-button {
   position: fixed;
   width: 70px;
